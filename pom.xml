@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lti</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>inventorymanagementapplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+<!-- 	<packaging>war</packaging> -->
 	<name>Inventmanagement</name>
 	<description>Inventory management app</description>
 	<properties>
