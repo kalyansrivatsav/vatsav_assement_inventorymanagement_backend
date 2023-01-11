@@ -1,6 +1,7 @@
 package com.lti.controller;
 import com.lti.azureservice.Blobservice;
 import com.lti.dao.ProductDAO;
+import com.lti.dto.ImageDTO;
 import com.lti.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,7 @@ public class ProductController {
 	}
 	
 	@GetMapping(value="/image/{factid}/{prodid}/{filename}")
-	public String getImage(@PathVariable int factid,@PathVariable int prodid,@PathVariable String filename) {
+	public ImageDTO getImage(@PathVariable int factid,@PathVariable int prodid,@PathVariable String filename) {
 		return blobservice.fetchBlob(factid, prodid, filename);
 	}
 

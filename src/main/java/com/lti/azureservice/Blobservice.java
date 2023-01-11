@@ -13,6 +13,8 @@ import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
 import com.azure.storage.blob.models.BlobItem;
 import com.azure.storage.blob.models.ListBlobsOptions;
+import com.lti.dto.ImageDTO;
+import com.lti.dto.ImageDTO.ImageDTOBuilder;
 
 @Service
 public class Blobservice {
@@ -63,7 +65,7 @@ public class Blobservice {
 		blobClient.delete();
 	}
 	
-	public String fetchBlob(int factid,int id,String filename) {
+	public ImageDTO fetchBlob(int factid,int id,String filename) {
 		
 		 BlobContainerClient container=new BlobContainerClientBuilder()
       			.connectionString(storageconnectionstring)
@@ -72,6 +74,9 @@ public class Blobservice {
 		
 		final BlobClient blobClient=container.getBlobClient(factid+"/"+id+"/"+filename);
 		byte[] attachment=blobClient.downloadContent().toBytes();
-		return Base64.getEncoder().encodeToString(attachment);
+		ImageDTO idto=ImageDTO.builder()
+				.file(Base64.getEncoder().encodeToString(attachment))
+				.build();
+		return idto;
 	}
 }
