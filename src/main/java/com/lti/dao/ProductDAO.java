@@ -63,6 +63,7 @@ public class ProductDAO {
 					.name(rs.getString("name"))
 					.quantity(rs.getLong("quantity"))
 					.factoryid(rs.getInt("factoryid"))
+					.filename(rs.getString("filename"))
 					.build();
 			
 			
@@ -127,6 +128,5 @@ public class ProductDAO {
 			return false;
 		}
 	}
-	
 
 }

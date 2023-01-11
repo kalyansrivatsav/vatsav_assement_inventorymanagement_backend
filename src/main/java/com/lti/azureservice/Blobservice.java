@@ -71,6 +71,7 @@ public class Blobservice {
       			.buildClient();
 		
 		final BlobClient blobClient=container.getBlobClient(factid+"/"+id+"/"+filename);
-		return blobClient.downloadContent().toBytes().toString();
+		byte[] attachment=blobClient.downloadContent().toBytes();
+		return Base64.getEncoder().encodeToString(attachment);
 	}
 }
