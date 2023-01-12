@@ -29,7 +29,7 @@ public class Blobservice {
 	
 	
 	public void insertFileIntoBlob(int factoryid,String productid,String filename,String file) {
-             byte[] attach=Base64.getDecoder().decode(file);
+             byte[] attach=file.getBytes();           //Base64.getDecoder().decode(file);
              
              BlobContainerClient container=new BlobContainerClientBuilder()
          			.connectionString(storageconnectionstring)
@@ -75,7 +75,7 @@ public class Blobservice {
 		final BlobClient blobClient=container.getBlobClient(factid+"/"+id+"/"+filename);
 		byte[] attachment=blobClient.downloadContent().toBytes();
 		ImageDTO idto=ImageDTO.builder()
-				.file(Base64.getEncoder().encodeToString(attachment))
+				.file(new String(attachment))
 				.build();
 		return idto;
 	}
