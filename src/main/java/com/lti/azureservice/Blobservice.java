@@ -61,8 +61,11 @@ public class Blobservice {
       			.containerName(blobname)
       			.buildClient();
 		
-		final BlobClient blobClient=container.getBlobClient(factid+"/"+id);
-		blobClient.delete();
+		 final ListBlobsOptions listBlobsOptions=new ListBlobsOptions().setPrefix(factid+"/"+id);
+			for(BlobItem file:container.listBlobs(listBlobsOptions,Duration.ofSeconds(60))){
+				final BlobClient blobClient=container.getBlobClient(file.getName());
+				blobClient.delete();
+			}
 	}
 	
 	public ImageDTO fetchBlob(int factid,int id,String filename) {
