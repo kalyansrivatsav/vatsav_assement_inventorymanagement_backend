@@ -75,7 +75,7 @@ public class Blobservice {
 		final BlobClient blobClient=container.getBlobClient(factid+"/"+id+"/"+filename);
 		byte[] attachment=blobClient.downloadContent().toBytes();
 		ImageDTO idto=ImageDTO.builder()
-				.file(Base64.getUrlEncoder().encodeToString(attachment))
+				.file(Base64.getEncoder().encodeToString(attachment))
 				.build();
 		return idto;
 	}
