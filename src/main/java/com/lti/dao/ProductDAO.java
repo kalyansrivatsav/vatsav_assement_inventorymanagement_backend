@@ -63,6 +63,7 @@ public class ProductDAO {
 					.name(rs.getString("name"))
 					.quantity(rs.getLong("quantity"))
 					.factoryid(rs.getInt("factoryid"))
+					.type(rs.getString("type"))
 					.filename(rs.getString("filename"))
 					.build();
 			
@@ -92,13 +93,13 @@ public class ProductDAO {
 		}
 	}
 	
-	public boolean deleteprod(int factid,int prodid,String filename) {
+	public boolean deleteprod(int factid,int prodid) {
 		String SQL="delete from product where id=:prodid";
 		
 		Map<String, Object> sqlparms=new HashMap<>();
 		sqlparms.put("prodid",prodid);
 		
-		blobservice.deleteBlob(factid, prodid, filename);
+		blobservice.deleteBlob(factid, prodid);
 		
 		int i=namedParameterJdbcTemplate.update(SQL, sqlparms);
 		

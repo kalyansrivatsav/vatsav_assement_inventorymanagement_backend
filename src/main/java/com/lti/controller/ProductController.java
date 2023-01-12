@@ -34,9 +34,9 @@ public class ProductController {
 		return productDAO.updateprod(productDTO);
 	}
 	
-	@DeleteMapping(value="/delete/{factid}/{prodid}/{filename}")
-	public boolean deleteprodcon(@PathVariable int factid,@PathVariable int prodid,@PathVariable String filename) {
-		return productDAO.deleteprod(factid,prodid,filename);
+	@DeleteMapping(value="/delete/{factid}/{prodid}")
+	public boolean deleteprodcon(@PathVariable int factid,@PathVariable int prodid) {
+		return productDAO.deleteprod(factid,prodid);
 	}
 	
 	@GetMapping(value="/image/{factid}/{prodid}/{filename}")

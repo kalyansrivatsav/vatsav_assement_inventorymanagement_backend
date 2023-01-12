@@ -54,14 +54,14 @@ public class Blobservice {
 		}
 	}
 	
-	public void deleteBlob(int factid,int id,String filename) {
+	public void deleteBlob(int factid,int id) {
 		
 		 BlobContainerClient container=new BlobContainerClientBuilder()
       			.connectionString(storageconnectionstring)
       			.containerName(blobname)
       			.buildClient();
 		
-		final BlobClient blobClient=container.getBlobClient(factid+"/"+id+"/"+filename);
+		final BlobClient blobClient=container.getBlobClient(factid+"/"+id);
 		blobClient.delete();
 	}
 	
