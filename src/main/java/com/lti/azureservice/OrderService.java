@@ -22,4 +22,8 @@ public class OrderService {
         return restTemplate.postForEntity(url, entity, String.class);
     }
 
+    public ResponseEntity<String> callOrderStatusAPI(String url){
+        return restTemplate.getForEntity(url,String.class);
+    }
+
 }

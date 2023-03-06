@@ -19,4 +19,10 @@ public class OrderController {
         String url = "https://srivatsav-orders-api.azurewebsites.net/order/create";
         return orderService.callOrderAPI(url,orderDTO);
     }
+
+    @GetMapping("/status/{orderId}")
+    public ResponseEntity<String> fetchOrderStatus(@PathVariable int orderId){
+        String url = "https://srivatsav-orders-api.azurewebsites.net/order/status/"+orderId;
+        return orderService.callOrderStatusAPI(url);
+    }
 }
