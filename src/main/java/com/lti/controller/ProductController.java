@@ -44,4 +44,9 @@ public class ProductController {
 		return blobservice.fetchBlob(factid, prodid, filename);
 	}
 
+	@GetMapping("/order-quantity/{prodid}")
+	public int fetchOrderedQuantity(@PathVariable long prodid){
+		return productDAO.fetchOrderedQuantity(prodid);
+	}
+
 }

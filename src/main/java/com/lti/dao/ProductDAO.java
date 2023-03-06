@@ -130,4 +130,18 @@ public class ProductDAO {
 		}
 	}
 
+	public int fetchOrderedQuantity(long prodid){
+		String SQL="select ordered_quantity from product where id=:prodid";
+
+		int[] ordered_quantity = new int[1];
+
+		Map<String, Object> sqlparms=new HashMap<>();
+		sqlparms.put("prodid",prodid);
+
+		namedParameterJdbcTemplate.query(SQL,sqlparms,rs -> {
+			 ordered_quantity[0]=rs.getInt("ordered_quantity");
+		});
+		return ordered_quantity[0];
+	}
+
 }
