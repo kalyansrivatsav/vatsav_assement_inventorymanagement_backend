@@ -1,11 +1,11 @@
 package com.lti.dao;
 
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lti.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -14,12 +14,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.azure.core.util.BinaryData;
-import com.azure.storage.blob.BlobClient;
-import com.azure.storage.blob.BlobContainerClient;
-import com.azure.storage.blob.BlobContainerClientBuilder;
 import com.lti.azureservice.Blobservice;
-import com.lti.dto.ProductDTO;
 
 @Repository
 public class ProductDAO {
@@ -65,7 +60,7 @@ public class ProductDAO {
 					.factoryid(rs.getInt("factoryid"))
 					.type(rs.getString("type"))
 					.filename(rs.getString("filename"))
-					.orderedQuantity(rs.getInt("ordered_quantity"))
+					.orderedQuanity(rs.getInt("ordered_quantity"))
 					.build();
 			
 			
