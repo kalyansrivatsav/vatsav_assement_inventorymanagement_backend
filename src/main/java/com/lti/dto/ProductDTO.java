@@ -14,4 +14,5 @@ public class ProductDTO {
 	int factoryid;
 	String filename;
 	String file;
+	int orderedQuantity;
 }

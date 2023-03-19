@@ -65,6 +65,7 @@ public class ProductDAO {
 					.factoryid(rs.getInt("factoryid"))
 					.type(rs.getString("type"))
 					.filename(rs.getString("filename"))
+					.orderedQuantity(rs.getInt("ordered_quantity"))
 					.build();
 			
 			
