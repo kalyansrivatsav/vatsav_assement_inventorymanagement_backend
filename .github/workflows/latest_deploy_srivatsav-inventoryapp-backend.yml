@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'srivatsav-inventoryapp-backend'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_570E1A2EA8C5460DBE29FC6CB6DB433A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C919C48D1EF94145A6BD8149D4C218E3 }}
           package: '*.jar'
